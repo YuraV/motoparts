@@ -7,4 +7,15 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    = yield
+    .navigation
+      .admin-navigation
+        %ul
+          %li= link_to t('.add_category'), new_category_path
+
+      .user-navigation
+        %ul
+          %li= link_to t('.general'), root_path
+          - categories.each do |category|
+            %li= link_to category.name, category_path(category)
+    %div{class: 'container', id: "#{controller_name}-#{action_name}"}
+      = yield

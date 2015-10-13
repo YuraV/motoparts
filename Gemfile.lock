@@ -126,12 +126,15 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mercury-rails (0.9.0)
+      coffee-rails
+      railties (~> 3.2)
     method_source (0.8.2)
     mime-types (1.25.1)
     mimemagic (0.3.0)
     mini_portile (0.6.2)
     multi_json (1.11.2)
-    mysql2 (0.4.1)
+    mysql2 (0.3.19)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
@@ -252,7 +255,8 @@ DEPENDENCIES
   jquery-cookie-rails
   jquery-rails
   jquery-ui-rails (~> 4.0.4)
-  mysql2
+  mercury-rails
+  mysql2 (~> 0.3.10)
   paperclip
   postmark-rails
   pry

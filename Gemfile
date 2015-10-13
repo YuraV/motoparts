@@ -20,6 +20,7 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
+
 gem 'puma'
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 4.0.4'
@@ -42,7 +43,6 @@ gem 'thin'
 gem 'cancan'
 gem 'rolify'
 gem 'bourbon'
-gem 'i18n', '~> 0.6.9'
 
 gem 'postmark-rails' # пошта
 gem 'paperclip' # для обробки картинок

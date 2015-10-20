@@ -1,8 +1,8 @@
 class Category < ActiveRecord::Base
-  extend FriendlyId
+  # extend FriendlyId
   attr_accessible :name, :link_name, :published
 
-  friendly_id :link_name, use: :slugged
+  # friendly_id :link_name, use: :slugged
 
   has_many :folders
   has_many :products, as: :assignment

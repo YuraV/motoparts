@@ -5,7 +5,9 @@ Motoparts::Application.routes.draw do
 
   resources :categories do
     resources :folders do
-      resources :products, except: :index
+      resources :products, except: :index do
+        put :mercury_update, on: :member
+      end
     end
   end
 

@@ -2,13 +2,13 @@ class ProductsController < ApplicationController
   respond_to :html, :json
   helper_method :folder, :product, :category
 
-  def index
-
-  end
-
   def new
     @product = folder.products.build
     respond_with(@product)
+  end
+
+  def show
+    respond_with(product, layout: !request.xhr? )
   end
 
   def edit

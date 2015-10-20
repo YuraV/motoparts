@@ -1,10 +1,9 @@
 class CategoriesController < ApplicationController
   respond_to :html, :json
-
   helper_method :category
 
   def index
-    respond_with(categories)
+    respond_with(categories, layout: !request.xhr? )
   end
 
   def new
@@ -19,7 +18,7 @@ class CategoriesController < ApplicationController
 
   def show
 
-    respond_with(category)
+    respond_with(category, layout: !request.xhr? )
   end
 
   private

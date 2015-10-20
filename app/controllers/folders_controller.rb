@@ -1,14 +1,13 @@
 class FoldersController < ApplicationController
   respond_to :html, :json
-
   helper_method :category, :folders, :folder
 
   def index
-    respond_with(folders)
+    respond_with(folders, layout: !request.xhr? )
   end
 
   def show
-    respond_with(folder)
+    respond_with(folder, layout: !request.xhr? )
   end
 
   def new

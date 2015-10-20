@@ -1,0 +1,11 @@
+%h2
+  = product.name
+#picture
+  = image_tag product.picture.url(:medium)
+
+#description.mercury-region{data: {type: :editable, mercury: :full}}
+  = raw product.description
+
+= link_to t('.edit_description'), "/editor#{category_folder_product_path(category, folder, product)}",
+          data: {'save-url' => mercury_update_category_folder_product_path(category, folder, product)},
+          class: :mercury_edit_link

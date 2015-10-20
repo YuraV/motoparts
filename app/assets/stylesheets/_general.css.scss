@@ -1,23 +1,254 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
 
-  .navigation {
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 15px;
+  .clear {
+    clear: both;
+    float: none !important;
+    font-size: 0;
+    height: 0;
+    line-height: 0;
+    padding: 0 !important;
+    width: auto;
+  }
 
-    .user-navigation {
-      position: relative;
-      display: inline;
-      float: left;
+  font-family: "PT Sans","Myriad pro","Source Sans Pro","Arial","Helvetica","sans-serif";
+  font-size: 12px;
+  height: 100%;
+  margin: 0 auto;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: top;
+  background-image: url('steel.png');
+
+  #header {
+    background: rgba(0, 0, 0, 0) url("menu.png") repeat-x scroll center 0;
+    height: 241px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    width: 100%;
+
+    #header-content {
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      width: 1170px;
+
+      #logo {
+        background: rgba(0, 0, 0, 0) url("Moto_logo.png") no-repeat scroll right center;
+        cursor: pointer;
+        float: left;
+        height: 165px;
+        line-height: 165px;
+        text-align: left;
+        width: 283px;
+      }
+
+      #info {
+        float: right;
+        height: 45px;
+        line-height: 45px;
+        margin-top: 100px;
+        vertical-align: middle;
+        white-space: nowrap;
+        width: 460px;
+
+        #info-content {
+          background: rgba(0, 0, 0, 0) url("talrunis.png") no-repeat scroll left center;
+          color: #ffffff;
+          float: left;
+          font-size: 26px;
+          font-weight: bolder;
+          height: 45px;
+          margin-right: 20px;
+          padding-left: 40px;
+          vertical-align: middle;
+        }
+      }
+
+      #top-menu {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        width: 1170px;
+
+        .delimiter {
+          background: rgba(0, 0, 0, 0) url("delimiter.png") no-repeat scroll right top;
+          float: left;
+          height: 48px;
+          width: 1px;
+        }
+
+        .menu-item {
+          float: left;
+          font-size: 22px;
+          font-weight: bold;
+          height: 48px;
+          line-height: 48px;
+          width: 160px;
+
+          a {
+            color: #ffffff;
+            text-decoration: none;
+          }
+        }
+      }
+    }
+  }
+
+  ul {
+    &.without-list {
+      list-style: none;
+    }
+  }
+
+  #body-wrapper {
+    width: 1170px;
+    margin: 0 auto;
+
+    #slider-wrapper {
+      width: 1100px;
+      margin: 0 auto;
+
+      .theme-default #slider {
+        margin: 0 auto 0;
+      }
     }
 
-    .admin-navigation {
-      position: relative;
-      float: right;
+    #side-bar {
+      background-color: rgb(86,86,86);
+      float: left;
+      min-height: 700px;
+      width: 266px;
 
-      ul {
-        list-style: none;
+      #search {
+//        background: rgba(0, 0, 0, 0) url("images/meklet.png") no-repeat scroll left 0;
+        padding-left: 15px;
+        padding-top: 22px;
+        text-align: left;
+        width: 251px;
+      }
+
+      #side-menu {
+        min-width: 266px;
+        text-align: left;
+        box-sizing: border-box;
+        margin-top: 22px;
+
+        ul {
+          list-style: outside none none;
+          box-sizing: border-box;
+          border-bottom: 1px solid #e0e0e0;
+
+          li {
+            margin: 0;
+            padding: 0;
+
+            ul {
+              border-bottom: none;
+              overflow: hidden;
+              display: none;
+
+              li a {
+                padding-left: 45px;
+                border: none;
+              }
+            }
+
+            a {
+              border-top: 1px solid #e0e0e0;
+              color: #fff;
+              display: block;
+              font-size: 18px;
+              font-weight: bold;
+              padding: 5px 0 6px 25px;
+              text-decoration: none;
+            }
+          }
+        }
+      }
+    }
+
+    #content-center {
+      background-color: #ffffff;
+      float: left;
+      min-height: 700px;
+      padding: 10px;
+      width: 750px;
+
+      .product-container-1 {
+        border: 1px solid black;
+        border-radius: 7px;
+        float: left;
+        height: 315px;
+        margin-bottom: 12px;
+        margin-right: 12px;
+        padding: 10px;
+        width: 215px;
+
+        &.clean {
+          height: auto;
+        }
+      }
+      .image-container-1 {
+        cursor: pointer;
+        height: 170px;
+        padding-bottom: 10px;
+        text-align: center;
+        width: 220px;
+
+        &.clean {
+          height: auto;
+        }
+      }
+
+      .description-container {
+        font-size: 14px;
+        font-weight: bold;
+        overflow-x: hidden;
+        text-align: left;
+        height: 105px;
+
+        &.clean {
+          height: auto;
+        }
+      }
+
+      .price-container {
+        float: left;
+        height: 36px;
+        overflow: visible;
+        width: 135px;
+
+        &.clean {
+          height: auto;
+        }
+      }
+    }
+
+    .navigation {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 15px;
+
+      .user-navigation {
+        position: relative;
         display: inline;
+        float: left;
+      }
+
+      .admin-navigation {
+        position: relative;
+        float: right;
+
+        ul {
+          list-style: none;
+          display: inline;
+        }
       }
     }
   }

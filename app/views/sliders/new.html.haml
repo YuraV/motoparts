@@ -1,0 +1,4 @@
+= simple_form_for @slider, html: { multipart: true } do |f|
+ = f.input :name
+ = file_field_tag 'pictures[]', type: :file, multiple: true
+ = f.submit

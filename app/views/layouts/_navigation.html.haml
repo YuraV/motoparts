@@ -1,0 +1,10 @@
+.navigation
+  .admin-navigation
+    %ul
+      %li= link_to t('.add_category'), new_category_path
+
+  .user-navigation
+    %ul
+      %li= link_to t('.general'), root_path
+      - categories.each do |category|
+        %li= link_to category.name, category_path(category)

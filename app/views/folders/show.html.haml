@@ -1,0 +1,11 @@
+- folder.products.each do |item|
+  .product-container-1
+    .image-container-1
+      = link_to polymorphic_path([category, folder, item]) do
+        = image_tag item_picture(item)
+    .description-container
+      = item.name
+      = raw item_description(item)
+    .price-container
+    .clear
+

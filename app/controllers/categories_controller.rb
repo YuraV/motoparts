@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   respond_to :html, :json
 
-  helper_method :categories, :category
+  helper_method :category
 
   def index
     respond_with(categories)
@@ -23,10 +23,6 @@ class CategoriesController < ApplicationController
   end
 
   private
-  def categories
-    @categories = Category.scoped
-  end
-
   def category
     @category = Category.find(params[:id])
   end

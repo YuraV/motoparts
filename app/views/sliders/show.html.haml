@@ -1,0 +1,10 @@
+#wrapper
+  .theme-default
+    #slider.ramblingSlider.adaptingSlider
+      - slider.pictures.each do |picture|
+        = image_tag picture.url(:slider)
+
+:javascript
+  $(function(){
+    $("#slider").ramblingSlider({theme: 'default'});
+  })

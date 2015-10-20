@@ -24,6 +24,8 @@ end
 gem 'puma'
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 4.0.4'
+gem 'jquery-migrate-rails'
+gem 'rambling-slider-rails'
 gem 'devise'
 gem 'haml-rails'
 gem 'html2haml'

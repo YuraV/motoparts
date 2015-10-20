@@ -1,0 +1,10 @@
+%table
+  %th
+    %td= t('.name')
+    %td= t('.active')
+    %td
+  - sliders.each do |slider|
+    %tr
+      %td= slider.name
+      %td= slider.active
+      %td= link_to t('.activate'), ''

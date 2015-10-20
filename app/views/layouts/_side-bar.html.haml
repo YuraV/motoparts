@@ -1,0 +1,23 @@
+#side-bar
+  #search
+    = form_tag '' do
+      = text_field_tag :query
+  #side-menu
+    .container
+      %ul
+        - categories.each do |category|
+          %li
+            = link_to category.name, category_path(category), class: 'category'
+            %ul.folders
+              - category.folders.each do |folder|
+                %li
+                  = link_to folder.name, category_folder_path(category, folder)
+
+:javascript
+  $(function(){
+    $(document).on("click", ".category", function(e){
+      e.preventDefault()
+      console.log($(this).next(".folders:first"))
+      $(this).next(".folders:first").slideToggle()
+    });
+  })

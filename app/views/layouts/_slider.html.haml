@@ -1,0 +1,5 @@
+#slider-wrapper
+  .theme-default
+    #slider.ramblingSlider.adaptingSlider
+      - active_slider.pictures.each do |picture|
+        = image_tag picture.url(:slider)

@@ -7,15 +7,33 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    .navigation
-      .admin-navigation
-        %ul
-          %li= link_to t('.add_category'), new_category_path
+    #header
+      #header-content
+        = link_to root_path do
+          #logo
+        #info
+          #info-content
+            +380 98 444 51 59
+        .clear
+        #top-menu
+          .delimiter
+          .menu-item
+            = link_to 'Головна', root_path
+          .delimiter
+          .menu-item
+            = link_to 'Доставка', root_path
+          .delimiter
+          .menu-item
+            = link_to 'Контакти', root_path
+          .delimiter
+    #body-wrapper
+      -#= render 'layouts/slider'
+      -#%div{class: 'container', id: "#{controller_name}-#{action_name}"}
+      #content
+        = render 'layouts/side-bar'
+        #content-center
+          #breadcrumb
+          = yield
+        .clear
 
-      .user-navigation
-        %ul
-          %li= link_to t('.general'), root_path
-          - categories.each do |category|
-            %li= link_to category.name, category_path(category)
-    %div{class: 'container', id: "#{controller_name}-#{action_name}"}
-      = yield
+

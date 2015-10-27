@@ -6,3 +6,6 @@ en:
   laouts:
     application:
       motoparts: MotoParts
+
+  words:
+    price: "Ціна %{price} EUR"

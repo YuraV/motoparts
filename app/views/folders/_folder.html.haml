@@ -1,24 +1,9 @@
-%li.li-clickable.category{data: {href: category_folder_path(category, folder)}}
-  %h3= folder.name
-  .category-image
+%li.li-clickable.folder{data: {href: category_folder_path(category, folder)}}
+  %h3.two-lanes-caption= folder.name
+  .folder-image
     = image_tag item_picture(folder)
-  %ul
-    - first_four(folder.products).each do |product|
-      %li= link_to product.name, polymorphic_path([category, folder, product])
-    - if folder.products.count > 4
-      %li= link_to t('.show_all'), category_folder_path(category, folder)
-
-
-
-
-
-    -#.product-container-1.clean
--#  .name-container
--#    = folder.name
--#  .image-container-1.clean
--#    = link_to polymorphic_path([category, folder]) do
--#      = image_tag item_picture(folder)
--#  .description-container.clean
--#    = item_description(folder)
--#  .price-container.clean
--#  .clear
+  -#%ul
+  -#  - first_three(folder.products).each do |product|
+  -#    %li= link_to product.name, polymorphic_path([category, folder, product])
+  -#  - if folder.products.count > 3
+  -#    %li= link_to t('.show_all'), category_folder_path(category, folder)

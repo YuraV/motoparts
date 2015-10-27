@@ -19,7 +19,7 @@ module ApplicationHelper
     item.respond_to?(:description) ? item.description : ''
   end
 
-  def first_four(resource)
-    resource.first(4)
+  def first_three(resource)
+    resource.first(3)
   end
 end

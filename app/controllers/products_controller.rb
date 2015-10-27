@@ -24,8 +24,8 @@ class ProductsController < ApplicationController
   def create
     @product = folder.products.build(params[:product])
     @product.save
-    @product.galery= Galery.create(name: "#{product.name}_galery")
-    respond_with(@product, location: category_folders_path)
+    @product.gallery = Gallery.create(name: "#{product.name}_galery")
+    respond_with(@product, location: category_folder_path(category, folder))
   end
 
   def update

@@ -8,7 +8,7 @@ Motoparts::Application.routes.draw do
   resource :admin_panels, only: [:show]
 
   resources :categories do
-    resources :folders do
+    resources :folders, except: :index do
       resources :products, except: :index do
         put :mercury_update, on: :member
       end

@@ -1,6 +1,6 @@
-class CreateGaleries < ActiveRecord::Migration
+class CreateGalleries < ActiveRecord::Migration
   def change
-    create_table :galeries do |t|
+    create_table :galleries do |t|
       t.string :name
       t.integer :product_id
       t.timestamps

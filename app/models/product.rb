@@ -1,9 +1,9 @@
 class Product < ActiveRecord::Base
   # extend FriendlyId
-  attr_accessible :name, :picture, :description, :folder_id
+  attr_accessible :name, :picture, :price, :description, :folder_id
 
-  belongs_to :folders
-  has_one :galery
+  belongs_to :folder
+  has_one :gallery
 
   # friendly_id :name, use: :slugged
 
@@ -11,5 +11,7 @@ class Product < ActiveRecord::Base
   validates_attachment :picture, content_type: { content_type: /\Aimage\/.*\Z/ }
 
   scope :first_four, ->  {first(4)}
+
+  self.per_page = 25
 
 end

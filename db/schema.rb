@@ -11,16 +11,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151019083115) do
+ActiveRecord::Schema.define(:version => 20151026171749) do
 
   create_table "categories", :force => true do |t|
-    t.string  "name"
-    t.string  "link_name"
-    t.boolean "published", :default => true
-    t.string  "slug"
+    t.string   "name"
+    t.boolean  "published",            :default => true
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
   end
-
-  add_index "categories", ["slug"], :name => "index_categories_on_slug"
 
   create_table "folders", :force => true do |t|
     t.string   "name"
@@ -30,24 +30,16 @@ ActiveRecord::Schema.define(:version => 20151019083115) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
-    t.string   "slug"
   end
 
-  add_index "folders", ["slug"], :name => "index_folders_on_slug"
-
-  create_table "friendly_id_slugs", :force => true do |t|
-    t.string   "slug",                         :null => false
-    t.integer  "sluggable_id",                 :null => false
-    t.string   "sluggable_type", :limit => 40
-    t.datetime "created_at"
+  create_table "galeries", :force => true do |t|
+    t.string   "name"
+    t.integer  "product_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
-
-  add_index "friendly_id_slugs", ["slug", "sluggable_type"], :name => "index_friendly_id_slugs_on_slug_and_sluggable_type", :unique => true
-  add_index "friendly_id_slugs", ["sluggable_id"], :name => "index_friendly_id_slugs_on_sluggable_id"
-  add_index "friendly_id_slugs", ["sluggable_type"], :name => "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "pictures", :force => true do |t|
-    t.integer  "slider_id"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
     t.string   "picture_file_name"
@@ -58,10 +50,8 @@ ActiveRecord::Schema.define(:version => 20151019083115) do
 
   create_table "products", :force => true do |t|
     t.string   "name"
-    t.string   "model"
     t.text     "description"
     t.boolean  "published",            :default => true
-    t.string   "slug"
     t.integer  "folder_id"
     t.string   "picture_file_name"
     t.string   "picture_content_type"
@@ -69,13 +59,24 @@ ActiveRecord::Schema.define(:version => 20151019083115) do
     t.datetime "picture_updated_at"
   end
 
-  add_index "products", ["slug", "id", "folder_id"], :name => "index_products_on_slug_and_id_and_folder_id"
+  add_index "products", ["folder_id"], :name => "index_products_on_folder_id"
 
-  create_table "sliders", :force => true do |t|
-    t.string   "name"
-    t.boolean  "active",     :default => false
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+  create_table "users", :force => true do |t|
+    t.string   "email",                  :default => "", :null => false
+    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0,  :null => false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                             :null => false
+    t.datetime "updated_at",                             :null => false
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end

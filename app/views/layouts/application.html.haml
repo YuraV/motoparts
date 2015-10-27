@@ -7,34 +7,22 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    #header
-      #header-content
-        = link_to root_path do
-          #logo
-        #info
-          #info-content
-            +380 98 444 51 59
-        .clear
-        #top-menu
-          .delimiter
-          .menu-item
-            = link_to 'Головна', root_path
-          .delimiter
-          .menu-item
-            = link_to 'Доставка', root_path
-          .delimiter
-          .menu-item
-            = link_to 'Контакти', root_path
-          .delimiter
+    = render 'layouts/flash', flash: flash
     #body-wrapper
-      -#= render 'layouts/slider'
-      -#%div{class: 'container', id: "#{controller_name}-#{action_name}"}
+      #header
+        #logo
+          = link_to root_path do
+            = image_tag "Moto_logo.png"
+        #info
+          %span.glyphicon.glyphicon-phone
+          %span.contact +380 98 444 51 59
+        %ul#top-menu
+          %li= link_to 'Доставка', root_path
+          %li= link_to 'Контакти', root_path
       #content
-        = render 'layouts/side-bar'
-        #content-center
-          #breadcrumb
-          #content-inner
-            = yield
-        .clear
-
-
+        -#= render 'layouts/side-bar'
+        #breadcrumb
+          -#= breadcrumbs pretext: "You are here: ",   separator: " › "
+          %ol.breadcrumb= render_breadcrumbs :tag => :li, :separator => ""
+        #content-inner
+          = yield

@@ -1,5 +1,4 @@
-= simple_form_for category do |f|
+= simple_form_for category, html: { multipart: true } do |f|
   = f.input :name
-  = f.input :link_name
-  = f.input :published
+  = f.input :picture, as: :file
   = f.submit

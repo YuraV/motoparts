@@ -1,0 +1,15 @@
+#admin_panel
+  %table.table.table-hover
+    %thead
+      %tr
+        %th= "Назва Категорії"
+        %th
+    %tbody
+      - categories.each do |category|
+        %tr
+          %td= category.name
+          %td= link_to "Створити Розділ в категорії #{category.name}", new_category_folder_path(category)
+
+= link_to "Вилогуватись", destroy_user_session_path, method: :delete
+= link_to "Оновити Пароль", edit_user_registration_path
+-#= link_to "Оновити Пароль", edit_user_password_path

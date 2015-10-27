@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require jquery-migrate-min
 //= require jquery.rambling.slider
+//= require bootstrap-sprockets
 //= require motoparts
 //= require_tree .

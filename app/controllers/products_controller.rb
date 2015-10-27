@@ -1,6 +1,9 @@
 class ProductsController < ApplicationController
-  respond_to :html, :json
   helper_method :folder, :product, :category
+  respond_to :html, :json
+  before_filter :authenticate_user!, except: [:show]
+  add_breadcrumb "MotoParts", :root_path
+
 
   def new
     @product = folder.products.build
@@ -8,6 +11,9 @@ class ProductsController < ApplicationController
   end
 
   def show
+    add_breadcrumb category.name, category_path(category)
+    add_breadcrumb folder.name, category_folder_path(category,folder)
+    add_breadcrumb product.name, category_folder_product_path(category,folder,product)
     respond_with(product, layout: !request.xhr? )
   end
 
@@ -17,7 +23,9 @@ class ProductsController < ApplicationController
 
   def create
     @product = folder.products.build(params[:product])
-    @product.save ? respond_with(@product, location: category_folders_path) : flash.now[:error]
+    @product.save
+    @product.galery= Galery.create(name: "#{product.name}_galery")
+    respond_with(@product, location: category_folders_path)
   end
 
   def update
@@ -41,5 +49,13 @@ class ProductsController < ApplicationController
 
   def category
     @category ||= Category.find(params[:category_id])
+  end
+
+  def products
+    @product ||= folder.products
+  end
+
+  def galery
+    @galery = product.galery
   end
 end

@@ -1,0 +1,10 @@
+.product-container-1
+  .image-container-1
+    = link_to polymorphic_path([category, folder, product]) do
+      = image_tag item_picture(product)
+  .description-container
+    = product.name
+    = raw item_description(product)
+  .price-container
+  .clear
+

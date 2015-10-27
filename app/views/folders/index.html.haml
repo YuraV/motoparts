@@ -1,10 +1,1 @@
--#= render 'shared/items_description', items: folders
-- folders.each do |item|
-  .product-container-1.clean
-    .image-container-1.clean
-      = link_to polymorphic_path([category, item]) do
-        = image_tag item_picture(item)
-    .description-container.clean
-      = item_description(item)
-    .price-container.clean
-    .clear
+= render folders

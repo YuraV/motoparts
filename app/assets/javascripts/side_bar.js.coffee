@@ -1,19 +1,23 @@
-MotoParts.ns('MotoParts.Main')
+MotoParts.ns('MotoParts.SideBar')
 
-class MotoParts.Main
+class MotoParts.SideBar
   constructor: (options)->
     @settings = $.extend {}, {
-      category: ".category"
+      sideBar:  $("#side-bar")
+      contentCenter: $("#content-center")
 
     }, options
 
-    @category = $(@settings.category)
+    { @sideBar, @contentCenter } = @settings
+
+    @sideBar.height(@contentCenter.outerHeight())
 
     $(document).on "click", ".category", (e)->
       $this = $(this)
       e.preventDefault()
       $this.next(".folders:first").slideToggle()
 
+    @sideBar.find($("a[href='#{$(location)[0].pathname.match(/(\/categories\/\d+)/)[0]}'")).next('ul').show() unless $(location)[0].pathname == '/'
 
 #    $(document).on "click", "a", (e)->
 #      $this = $(this)

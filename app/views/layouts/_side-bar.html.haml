@@ -3,7 +3,7 @@
     = form_tag '' do
       = text_field_tag :query
   #side-menu
-    .container
+    .motoparts-container
       %ul
         - categories.each do |category|
           %li
@@ -11,9 +11,20 @@
             %ul.folders
               - category.folders.each do |folder|
                 %li
-                  = link_to folder.name, category_folder_path(category, folder)
+                  = link_to folder.name, category_folder_path(category, folder), class: 'folder'
+
+-##side-bar
+-#  #side-menu
+-#    %nav
+-#      - main_navigation_groups.each do |nav_group|
+-#        - if nav_group[:items].present?
+-#          .sidebar_group
+-#            - if nav_group[:title]
+-#              %h3= t(".#{nav_group[:title]}")
+-#            = render_navigation items: nav_group[:items], expand_all: true
+
 
 :javascript
   $(function(){
-    new MotoParts.Main()
+    new MotoParts.SideBar()
   })

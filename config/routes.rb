@@ -5,7 +5,7 @@ Motoparts::Application.routes.draw do
 
   resources :sliders
 
-  resource :admin_panels, only: [:show]
+  match '/admin_panel', to: 'admin_panels#show', as: :admin_panel
 
   resources :categories do
     resources :folders, except: :index do

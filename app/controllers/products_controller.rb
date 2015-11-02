@@ -22,9 +22,7 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = folder.products.build(params[:product])
-    @product.save
-    @product.gallery = Gallery.create(name: "#{product.name}_galery")
+    @product = ProductCreatorService.create!(params: params, folder: folder)
     respond_with(@product, location: category_folder_path(category, folder))
   end
 

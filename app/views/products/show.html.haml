@@ -1,12 +1,10 @@
 .product-container
-  .product-gallery
+  .product-gallery{media: :slider}
     .product-image-container
       = image_tag product.picture.url
     .product-gallery-preview
-      = image_tag product.picture.url(:thumb)
-      = image_tag product.picture.url(:thumb)
-      = image_tag product.picture.url(:thumb)
-      = image_tag product.picture.url(:thumb)
+      - product.gallery.pictures.each do |picture|
+        = image_tag picture.url
   .product-description-container
     %h2= product.name
     #description.description.mercury-region{data: {type: :editable, mercury: :full}}
@@ -16,3 +14,20 @@
               data: {'save-url' => mercury_update_category_folder_product_path(category, folder, product)},
               class: :mercury_edit_link
     %span.price= t('words.price', price: product.price)
+
+:javascript
+  $(".product-gallery").jsgallery({
+    // custom image selector
+    imgSelector : "img",
+    // 0 = image 1
+    currentImage : 0,
+    // custom footer of the gallery
+    customHTMLFooter : "",
+    // click background overlay to close
+    bgClickClose : true,
+
+    // templates for nav buttons and close button HTML
+    leftNavHTML : '<i class="fa fa-chevron-left">',
+    rightNavHTML : '<i class="fa fa-chevron-right">',
+    closeHTML : '<i class="fa fa-times"></i>'
+  });

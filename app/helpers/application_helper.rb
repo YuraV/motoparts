@@ -12,7 +12,7 @@ module ApplicationHelper
   end
 
   def item_picture(item)
-    (item.respond_to?(:picture) && item.picture) ? item.picture.url(:medium) : 'no_image.png'
+    item.picture ? item.picture.url(:medium) : 'no_image.png'
   end
 
   def item_description(item)
@@ -21,5 +21,9 @@ module ApplicationHelper
 
   def first_three(resource)
     resource.first(3)
+  end
+
+  def first_records(resource, n)
+    resource.first(n)
   end
 end

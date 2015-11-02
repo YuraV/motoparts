@@ -10,5 +10,9 @@
  *
  *= require_self
  *= require jquery.rambling.slider
+ *= require jsgallery
+ *= require font-awesome
+ *= require thumbnail-slider
+ *= require thumbs2
  *= require_tree .
  */

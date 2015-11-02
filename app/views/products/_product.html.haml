@@ -1,6 +1,6 @@
 %li.li-clickable.product{data: {href: category_folder_product_path(category, folder, product)}}
   %h3.two-lanes-caption= product.name
   .product-image
-    = image_tag category_picture(category)
+    = image_tag item_picture(product)
   %span.price
     = t('words.price', price: product.price)

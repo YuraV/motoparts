@@ -21,12 +21,12 @@ development:
   <<: *defaults
 
 production:
-  database: d2qp665r5r71qm
+  database: d2bsnt1ajsag1l
   port: 5432
   pool: 5
-  username: bzihjgumeddcak
-  password: XLw4dtay7LbPBAVoeMgJNmyNXK
-  host: ec2-107-21-219-201.compute-1.amazonaws.com
+  username: aykitrrwlbtsyp
+  password:  prkscMHxNP4AvoqO3j9Rd3NImY
+  host: ec2-107-21-221-107.compute-1.amazonaws.com
   encoding: utf8
   reconnect: true
 #  <<: *defaults

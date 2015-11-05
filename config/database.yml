@@ -1,25 +1,34 @@
+defaults: &defaults
+  adapter: mysql2
+  encoding: utf8
+  reconnect: true
+  host: localhost
+  port: 3306
+  pool: 30
+
 #defaults: &defaults
-#  adapter: mysql2
-#  encoding: utf8
-#  reconnect: true
+#  adapter: postgresql
+#  encoding: unicode
 #  host: localhost
-#  port: 3306
 #  pool: 30
 #  username: root
 #  password: 's123456j'
 #
-#development:
-#  database: motoparts_development
-#  <<: *defaults
+development:
+  database: motoparts_development
+  username: root
+  password: 's123456j'
+  <<: *defaults
 
 production:
-#  database: motoparts
-  adapter: postgresql
-  encoding: unicode
-#  database: motoparts
+  database: d2qp665r5r71qm
+  port: 5432
   pool: 5
-#  username: root
-#  password:
+  username: bzihjgumeddcak
+  password: XLw4dtay7LbPBAVoeMgJNmyNXK
+  host: ec2-107-21-219-201.compute-1.amazonaws.com
+  encoding: utf8
+  reconnect: true
 #  <<: *defaults
 
 # Warning: The database defined as "test" will be erased and

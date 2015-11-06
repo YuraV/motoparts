@@ -21,12 +21,12 @@ talrunis.png: talrunis-7b638f9a498555d39db69686e07ed899.png
 talrunis/index.png: talrunis-7b638f9a498555d39db69686e07ed899.png
 application.js: application-b1a12a4a9fb3270074c14f02b365ffe2.js
 application/index.js: application-b1a12a4a9fb3270074c14f02b365ffe2.js
-application.css: application-ef9c34aa707e37634e3a0cae28d35507.css
-application/index.css: application-ef9c34aa707e37634e3a0cae28d35507.css
+application.css: application-d3d79a9bf2c7d81806b06e345226fce2.css
+application/index.css: application-d3d79a9bf2c7d81806b06e345226fce2.css
 mercury.js: mercury-0b5e0cfff73da4acad21af7f8624edf7.js
 mercury/index.js: mercury-0b5e0cfff73da4acad21af7f8624edf7.js
-mercury.css: mercury-a66597e900a6beefced9a0c88b3e0290.css
-mercury/index.css: mercury-a66597e900a6beefced9a0c88b3e0290.css
+mercury.css: mercury-ae812b44db26e75c940bddcfc3bb154b.css
+mercury/index.css: mercury-ae812b44db26e75c940bddcfc3bb154b.css
 mercury/button.png: mercury/button-8b1fd7569468e64af0078bb7ff89201f.png
 mercury/button/index.png: mercury/button-8b1fd7569468e64af0078bb7ff89201f.png
 mercury/close.png: mercury/close-563f3cbe4bc0ea9522b726d32652db9f.png

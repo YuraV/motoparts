@@ -22,7 +22,7 @@ development:
 
 production:
   database: motoparts
-  username: rails
+  username: root
   password: s123456j
   <<: *defaults
 

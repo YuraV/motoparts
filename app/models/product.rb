@@ -7,7 +7,7 @@ class Product < ActiveRecord::Base
 
   # friendly_id :name, use: :slugged
 
-  has_attached_file :picture, :styles => { :medium => "212x158>", :thumb => "100x100>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :picture, :styles => { :medium => "212x158>", :thumb => "100x100>" }, :default_url => "no_image.png"
   validates_attachment :picture, content_type: { content_type: /\Aimage\/.*\Z/ }
 
   scope :first_four, ->  {first(4)}

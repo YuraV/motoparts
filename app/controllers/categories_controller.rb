@@ -7,7 +7,7 @@ class CategoriesController < ApplicationController
 
   def index
     add_breadcrumb "Створити Нову Категорію", new_category_path if current_user
-    respond_with(categories, layout: !request.xhr? )
+    respond_with(categories, layout: !request.xhr?)
   end
 
   def new
@@ -34,6 +34,11 @@ class CategoriesController < ApplicationController
   def update
     category.update_attributes(params[:category])
     respond_with(category, location: root_path)
+  end
+
+  def destroy
+    category.destroy
+    respond_with(categories)
   end
 
   private

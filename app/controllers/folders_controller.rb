@@ -23,9 +23,18 @@ class FoldersController < ApplicationController
     respond_with(@folder)
   end
 
+  def edit
+    respond_with(folder)
+  end
+
   def create
     @folder = category.folders.build(params[:folder])
     @folder.save ? respond_with(category) : flash.now[:error]
+  end
+
+  def update
+    folder.update_attributes(params[:folder])
+    respond_with([category, folder])
   end
 
   private

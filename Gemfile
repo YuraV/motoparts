@@ -5,7 +5,7 @@ gem 'rails', '3.2.16'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-# gem 'mysql2', '~> 0.3.10'
+gem 'mysql2', '~> 0.3.10'
 
 
 # Gems used only for assets and not required
@@ -32,9 +32,10 @@ gem 'html2haml'
 gem 'rspec', '~> 2.14.1'
 gem 'simple_form'
 gem 'pry'
+gem 'unicorn'
 gem 'breadcrumbs_on_rails'
 gem 'font-awesome-rails'
-gem 'pg'
+# gem 'pg'
 gem 'simple-navigation', '~> 4.0'
 gem 'gretel'
 gem 'bootstrap-sass', '~> 3.3.5'

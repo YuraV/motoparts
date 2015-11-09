@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151027142404) do
+ActiveRecord::Schema.define(:version => 20151109180852) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(:version => 20151027142404) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
-    t.integer  "price"
+    t.float    "price"
   end
 
   add_index "products", ["folder_id"], :name => "index_products_on_folder_id"

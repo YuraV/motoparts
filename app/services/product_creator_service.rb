@@ -16,7 +16,7 @@ class ProductCreatorService
   def create!
     if product.save
       create_gallery
-      populate_gallery
+      populate_gallery if pictures
     end
     product
   end

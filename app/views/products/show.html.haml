@@ -7,13 +7,13 @@
         = image_tag picture.url
   .product-description-container
     %h2= product.name
+    %span.price= t('words.price', price: product.price)
     #description.description.mercury-region{data: {type: :editable, mercury: :full}}
       = raw product.description
       - if current_user
         = link_to t('.edit_description'), "/editor#{category_folder_product_path(category, folder, product)}",
               data: {'save-url' => mercury_update_category_folder_product_path(category, folder, product)},
               class: :mercury_edit_link
-    %span.price= t('words.price', price: product.price)
 
 :javascript
   $(".product-gallery").jsgallery({

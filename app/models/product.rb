@@ -12,6 +12,6 @@ class Product < ActiveRecord::Base
 
   scope :first_four, ->  {first(4)}
 
-  self.per_page = 25
+  self.per_page = 32
 
 end

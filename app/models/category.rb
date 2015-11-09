@@ -9,5 +9,5 @@ class Category < ActiveRecord::Base
 
   has_many :folders
 
-  self.per_page = 4
+  self.per_page = 32
 end

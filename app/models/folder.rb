@@ -10,5 +10,5 @@ class Folder < ActiveRecord::Base
   has_attached_file :picture, :styles => { :medium => "168x168>", :thumb => "100x100>" }, :default_url => "no_image.png"
   validates_attachment :picture, content_type: { content_type: /\Aimage\/.*\Z/ }
 
-  self.per_page = 8
+  self.per_page = 32
 end

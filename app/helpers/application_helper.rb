@@ -26,4 +26,8 @@ module ApplicationHelper
   def first_records(resource, n)
     resource.first(n)
   end
+
+  def euro_to_uah(amount)
+    (Currency.uah.rate * amount).ceil
+  end
 end

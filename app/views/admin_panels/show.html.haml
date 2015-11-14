@@ -1,4 +1,11 @@
 #admin_panel
+  %h2
+    = "Курс Євро"
+    %span= uah.rate
+    %span= link_to "Змінити", edit_currency_path(uah), rel: :facebox
+    %span.pull-right= link_to "Вилогуватись", destroy_user_session_path, method: :delete
+
+
   %table.table.table-hover
     %thead
       %tr
@@ -10,6 +17,6 @@
           %td= category.name
           %td= link_to "Створити Розділ в категорії #{category.name}", new_category_folder_path(category)
 
-= link_to "Вилогуватись", destroy_user_session_path, method: :delete
+
 -#= link_to "Оновити Пароль", edit_user_registration_path
 -#= link_to "Оновити Пароль", edit_user_password_path

@@ -1,9 +1,9 @@
 class AdminPanelsController < ApplicationController
   respond_to :html
   before_filter :authenticate_user!
-  helper_method :folder, :folders, :category
+  helper_method :folder, :folders, :category, :uah
 
-  def index
+  def show
 
   end
 
@@ -18,5 +18,9 @@ class AdminPanelsController < ApplicationController
 
   def folder
     @folder ||= folders.find(params[:folder_id])
+  end
+
+  def uah
+    @uah ||= Currency.uah
   end
 end

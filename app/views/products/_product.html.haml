@@ -3,4 +3,4 @@
   .product-image
     = image_tag item_picture(product)
   %span.price
-    = t('words.price', price: product.price)
+    = t('words.price', price: euro_to_uah(product.price))

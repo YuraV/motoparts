@@ -18,5 +18,6 @@
 //= require motoparts
 //= require jquery.jsgallery.min
 //= require jquery.jsgallery
+//= require jquery.facebox
 // require thumbnail-slider
 //= require_tree .

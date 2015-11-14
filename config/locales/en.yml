@@ -8,4 +8,4 @@ en:
       motoparts: MotoParts
 
   words:
-    price: "Ціна %{price} EUR"
+    price: "Ціна %{price} UAH"

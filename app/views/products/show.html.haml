@@ -7,7 +7,7 @@
         = image_tag picture.url
   .product-description-container
     %h2= product.name
-    %span.price= t('words.price', price: product.price)
+    %span.price= t('words.price', price: euro_to_uah(product.price))
     #description.description.mercury-region{data: {type: :editable, mercury: :full}}
       = raw product.description
       - if current_user

@@ -98,6 +98,7 @@ GEM
       railties (>= 3.2, < 5.0)
     friendly_id (4.0.10.1)
       activerecord (>= 3.0, < 4.0)
+    google-analytics-rails (0.0.6)
     gretel (3.0.8)
       rails (>= 3.2.0)
     haml (4.0.7)
@@ -266,6 +267,7 @@ DEPENDENCIES
   facebox-rails
   font-awesome-rails
   friendly_id (~> 4.0.10.1)
+  google-analytics-rails
   gretel
   haml-rails
   html2haml

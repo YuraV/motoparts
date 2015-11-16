@@ -22,6 +22,7 @@ group :assets do
 end
 
 gem 'puma'
+gem 'google-analytics-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 4.0.4'
 gem 'jquery-migrate-rails'

@@ -19,5 +19,6 @@
 //= require jquery.jsgallery.min
 //= require jquery.jsgallery
 //= require jquery.facebox
+//= require google_analytics
 // require thumbnail-slider
 //= require_tree .

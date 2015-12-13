@@ -1,0 +1,20 @@
+%table
+  %thead
+    %td Властивість
+    %td Одиниця Вимірювання
+    %td Значення
+    %td
+  %tbody
+    - @product.product_properties.each do |pp|
+      %tr
+        %td.w150p= pp.property.name
+        %td.w150p= pp.unit.name
+        %td= pp.value
+        %td= link_to 'remove', product_property_path(pp), method: :delete
+    %tr
+      %td.w150p= properties_select_tag
+      %td.w150p= select_tag :unit_id, '', include_blank: true, class: 'chosen-select', data: { width: "150px" }
+      -#%td= text_field_tag :product_property_value
+      %td
+        %button.add-record.btn.btn-success
+          %span.glyphicon.glyphicon-plus

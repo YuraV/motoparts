@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20151113171417) do
+ActiveRecord::Schema.define(:version => 20151213192336) do
+
+  create_table "brands", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -24,16 +30,9 @@ ActiveRecord::Schema.define(:version => 20151113171417) do
 
   create_table "currencies", :force => true do |t|
     t.string   "currency"
-    t.float    "rate"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "currency", :force => true do |t|
-    t.string   "currency"
-    t.float    "rate"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.decimal  "rate",       :precision => 16, :scale => 2
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
   end
 
   create_table "folders", :force => true do |t|
@@ -63,19 +62,45 @@ ActiveRecord::Schema.define(:version => 20151113171417) do
     t.datetime "picture_updated_at"
   end
 
-  create_table "products", :force => true do |t|
-    t.string   "name"
-    t.text     "description"
-    t.boolean  "published",            :default => true
-    t.integer  "folder_id"
-    t.string   "picture_file_name"
-    t.string   "picture_content_type"
-    t.integer  "picture_file_size"
-    t.datetime "picture_updated_at"
-    t.float    "price"
+  create_table "product_properties", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "property_id"
+    t.integer  "unit_id"
+    t.string   "value"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
+  create_table "products", :force => true do |t|
+    t.string  "name"
+    t.text    "description"
+    t.boolean "published",   :default => true
+    t.integer "folder_id"
+    t.integer "brand_id"
+    t.float   "price"
+  end
+
+  add_index "products", ["brand_id"], :name => "index_products_on_brand_id"
   add_index "products", ["folder_id"], :name => "index_products_on_folder_id"
+
+  create_table "properties", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "property_units", :force => true do |t|
+    t.integer  "property_id"
+    t.integer  "unit_id"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "units", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "", :null => false

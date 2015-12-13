@@ -3,6 +3,11 @@ class Folder < ActiveRecord::Base
   attr_accessible :name, :category_id, :published, :picture
 
   has_many :products
+  has_many :properties, through: :products
+  has_many :product_properties, through: :products
+
+  has_many :brands, through: :products
+
   belongs_to :category
 
   # friendly_id :name, use: :slugged

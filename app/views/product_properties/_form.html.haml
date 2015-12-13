@@ -1,0 +1,6 @@
+= simple_form_for @product_properties, html: { class: 'form-horizontal' } do |f|
+  = f.input :product_id, input_html: { value: product.id }, as: :hidden
+  = f.input :property_id, as: :select, collection: Property.scoped, input_html: { class: 'chosen-select' }
+  = f.input :unit_id, as: :select, collection: Unit.scoped, input_html: { class: 'chosen-select' }
+  = f.input :value
+  = f.submit

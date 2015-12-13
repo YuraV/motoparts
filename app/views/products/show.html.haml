@@ -1,21 +1,29 @@
 .product-container
   .product-gallery{media: :slider}
     .product-image-container
-      = image_tag product.picture.url
+      = image_tag item_picture(product)
     .product-gallery-preview
       - product.gallery.pictures.each do |picture|
         = image_tag picture.url
   .product-description-container
-    %h2= product.name
-    %span.price= t('words.price', price: euro_to_uah(product.price))
-    #description.description.mercury-region{data: {type: :editable, mercury: :full}}
-      = raw product.description
-      - if current_user
-        = link_to t('.edit_description'), "/editor#{category_folder_product_path(category, folder, product)}",
-              data: {'save-url' => mercury_update_category_folder_product_path(category, folder, product)},
-              class: :mercury_edit_link
+    .properties-container
+      -#= render 'product_properties/form'
+      = render 'products/properties_table'
+    .description-container
+      %h2= product.name
+      %span.price= t('words.price', price: euro_to_uah(product.price))
+      #description.description.mercury-region{data: {type: :editable, mercury: :full}}
+        = raw product.description
+        - if current_user
+          = link_to t('.edit_description'), "/editor#{category_folder_product_path(category, folder, product)}",
+                data: {'save-url' => mercury_update_category_folder_product_path(category, folder, product)},
+                class: :mercury_edit_link
 
 :javascript
+  new MotoParts.AddProductProperty({
+    product: "#{product.id}"
+  })
+
   $(".product-gallery").jsgallery({
     // custom image selector
     imgSelector : "img",

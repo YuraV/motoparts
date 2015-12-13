@@ -1,2 +1,25 @@
+- folder.properties.uniq.each do |property|
+  %ul#property.list-group
+    = property.name
+    - property.units.each do |unit|
+      %li.list-group-item
+        = label_tag unit.name
+        = check_box_tag unit.name, unit.id
+
+%ul.list-group#brand
+  Бренди
+  %li.list-group-item
+    - folder.brands.each do |brand|
+      = label_tag brand.name
+      = check_box_tag brand.name, brand.id
+
 %ul.products
   = render products
+
+:javascript
+  $(function(){
+    new MotoParts.FolderShow({
+      folder: "#{folder.id}",
+      category: "#{category.id}"
+    });
+  });

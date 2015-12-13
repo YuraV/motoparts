@@ -10,9 +10,25 @@ Motoparts::Application.routes.draw do
 
   resources :currencies
 
+  resources :brands
+
+  resources :properties do
+    get :units_from_property, on: :member
+
+    resources :property_units
+  end
+
+  resources :property_units
+
+  resources :units
+
+  resources :product_properties
+
+
   resources :categories do
     resources :folders, except: :index do
       resources :products, except: :index do
+        get :filter, on: :collection
         put :mercury_update, on: :member
       end
     end

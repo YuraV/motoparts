@@ -44,14 +44,20 @@ body {
   }
 
   #body-wrapper {
-    width: 1170px;
-    font-family: "PT Sans","Myriad pro","Source Sans Pro","Arial","Helvetica","sans-serif";
-    font-size: 12px;
-    height: 100%;
-    margin: 0 auto;
-    text-align: center;
-    text-decoration: none;
-    vertical-align: top;
+    #content {
+      width: 1170px;
+      font-family: "PT Sans","Myriad pro","Source Sans Pro","Arial","Helvetica","sans-serif";
+      font-size: 12px;
+      height: 100%;
+      margin: 0 auto;
+      text-align: center;
+      text-decoration: none;
+      vertical-align: top;
+
+      .property-show-page {
+        text-align: left;
+      }
+    }
 
     h3 {
       &.two-lanes-caption {
@@ -132,6 +138,7 @@ body {
 
     .product-container {
       clear: both;
+      overflow: hidden;
 
       .product-gallery {
         float: left;
@@ -168,24 +175,33 @@ body {
         width: 50%;
         padding-left: 40px;
 
-        h2 {
-          margin-bottom: 40px;
-          text-align: left;
-
+        .properties-container {
+          .add-record {
+            padding: 6px 15px;
+            font-size: 7px;
+          }
         }
 
-        .mercury_edit_link {
-          text-align: left;
-        }
+        .description-container {
+          h2 {
+            margin-bottom: 40px;
+            text-align: left;
 
-        .price {
-          display: block;
-          text-align: left;
-          margin-top: 20px;
-          font-size: 24px;
-          color: #5cb85c;
-          font-weight: bold;
+          }
 
+          .mercury_edit_link {
+            text-align: left;
+          }
+
+          .price {
+            display: block;
+            text-align: left;
+            margin-top: 20px;
+            font-size: 24px;
+            color: #5cb85c;
+            font-weight: bold;
+
+          }
         }
       }
     }
@@ -216,7 +232,7 @@ body {
       width: 100%;
       background: #e5e5e5;
       overflow: hidden;
-      padding: 20px;
+      padding: 20px 125px;
 
       #logo {
         float: left;
@@ -268,10 +284,15 @@ body {
     }
 
     .breadcrumb {
+      li + li:before {
+//        content: '›'
+        content: ' > '
+//        content: '☞'
+      }
       border-radius: 0 0 5px 5px;
     }
 
-    .category-container {
+    .category-container, .folders, .products {
       overflow: hidden;
       list-style: none;
       margin-top: 40px;
@@ -403,6 +424,11 @@ body {
           display: inline;
         }
       }
+    }
+  }
+  table {
+    td.w150p {
+      width: 150px;
     }
   }
 }

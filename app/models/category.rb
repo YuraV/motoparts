@@ -8,6 +8,7 @@ class Category < ActiveRecord::Base
   validates_attachment :picture, content_type: { content_type: /\Aimage\/.*\Z/ }
 
   has_many :folders
+  has_many :products, through: :folders
 
   self.per_page = 32
 end

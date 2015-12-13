@@ -1,0 +1,25 @@
+.col-md-6
+  %h2
+    Одиниці виміру для властивості:
+    %strong= property.name
+  %ul.list-group
+  - property.property_units.each do |property_unit|
+    %li.list-group-item
+      = property_unit.unit.name
+      = link_to property_property_unit_path(property, property_unit), method: :delete do
+        %span.pull-right.glyphicon.glyphicon-remove
+
+.col-md-6
+  .row
+    %h2 Додати одиницю виміру до властивості
+    = simple_form_for PropertyUnit.new do |f|
+      = f.input :property_id, as: :hidden, input_html: { value: property.id }
+      = f.input :unit_id, as: :select, collection: Unit.not_in_property(property.units.pluck(:id)), wrapper: :lg_8, label: false, input_html: { class: 'chosen-select' }
+      = button_tag :add, class: 'btn btn-success'
+      -#= f.submit
+  .row
+    %h2 Додати нову одиницю виміру
+    = simple_form_for Unit.new, html: { class: 'form-inline' } do |f|
+      = f.input :name, label: false
+      = button_tag :add, type: :submit, class: 'btn btn-default'
+

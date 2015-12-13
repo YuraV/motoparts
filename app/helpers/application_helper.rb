@@ -12,7 +12,11 @@ module ApplicationHelper
   end
 
   def item_picture(item)
-    item.picture ? item.picture.url(:medium) : 'no_image.png'
+    if item.respond_to?(:gallery)
+      item.pictures.exists? ? item.gallery.pictures.first.url(:medium) : 'no_image.png'
+    else
+      item.picture ? item.picture.url(:medium) : 'no_image.png'
+    end
   end
 
   def item_description(item)
@@ -28,6 +32,7 @@ module ApplicationHelper
   end
 
   def euro_to_uah(amount)
+    return 0 unless amount
     (Currency.uah.rate * amount).ceil
   end
 end

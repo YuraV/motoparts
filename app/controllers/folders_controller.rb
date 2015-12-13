@@ -47,7 +47,7 @@ class FoldersController < ApplicationController
   end
 
   def folder
-    @folder ||= folders.find(params[:id])
+    @folder ||= folders.find(params[:id] || params[:folder_id])
   end
 
   def products

@@ -13,9 +13,10 @@
     %ul.list-group#brand
       - folder.brands.uniq.each do |brand|
         %li.list-group-item.overflow-hidden
-          %span.pull-left
-            = label_tag brand.name
-            = check_box_tag brand.name, brand.id
+          .form-group
+            = label_tag brand.name, nil, class: 'col-lg-8'
+            .col-lg-4
+              = check_box_tag brand.name, brand.id
 
 .col-md-10
   %ul.products

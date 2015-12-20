@@ -4,4 +4,5 @@ class PropertyUnit < ActiveRecord::Base
   belongs_to :property
   belongs_to :unit
 
+  validates_presence_of :property_id, :unit_id
 end

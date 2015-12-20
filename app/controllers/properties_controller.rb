@@ -4,6 +4,12 @@ class PropertiesController < ApplicationController
 
   helper_method :property, :new_property_unit, :new_unit
 
+  def index
+    @properties = Property.all
+
+    respond_with(@properties)
+  end
+
   def new
     @property = Property.new
   end

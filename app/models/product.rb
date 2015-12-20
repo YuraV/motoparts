@@ -19,6 +19,7 @@ class Product < ActiveRecord::Base
   scope :by_brand,    -> (ids) { where(brand_id: ids) }
   scope :by_property, -> (ids) { joins(:product_properties).where(product_properties: { unit_id: ids }).uniq }
 
+  validates_presence_of :name, :folder_id, :price, :brand_id
 
 
   # has_attached_file :picture, :styles => { :medium => "212x158>", :thumb => "100x100>" }, :default_url => "no_image.png"

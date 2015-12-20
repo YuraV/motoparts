@@ -6,4 +6,6 @@ class Property < ActiveRecord::Base
 
   has_many :property_units
   has_many :units, through: :property_units
+
+  validates_presence_of :name
 end

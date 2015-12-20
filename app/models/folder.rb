@@ -10,6 +10,8 @@ class Folder < ActiveRecord::Base
 
   belongs_to :category
 
+  validates_presence_of :name
+
   # friendly_id :name, use: :slugged
 
   has_attached_file :picture, :styles => { :medium => "168x168>", :thumb => "100x100>" }, :default_url => "no_image.png"

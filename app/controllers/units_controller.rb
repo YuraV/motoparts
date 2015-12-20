@@ -1,4 +1,5 @@
 class UnitsController < ApplicationController
+  before_filter :authenticate_user!
   helper_method :property
   respond_to :html, :json
 

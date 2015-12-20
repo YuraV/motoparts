@@ -4,7 +4,6 @@ class CreateProductProperties < ActiveRecord::Migration
       t.integer :product_id
       t.integer :property_id
       t.integer :unit_id
-      t.string :value
 
       t.timestamps
     end

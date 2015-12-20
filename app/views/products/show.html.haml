@@ -6,9 +6,10 @@
       - product.gallery.pictures.each do |picture|
         = image_tag picture.url
   .product-description-container
-    .properties-container
-      -#= render 'product_properties/form'
-      = render 'products/properties_table'
+    - if current_user
+      .properties-container
+        -#= render 'product_properties/form'
+        = render 'products/properties_table'
     .description-container
       %h2= product.name
       %span.price= t('words.price', price: euro_to_uah(product.price))

@@ -6,14 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create([{ email: 'bosa.legenda@google.com', password: 'changeme' }])
+User.create([{ email: 'myastkovskyy@gmail.com', password: 'changemechangeme' }])
 
-%w( Обєм Довжина Тип Якість ).each do |property|
+%w( Об'єм Довжина Тип Якість ).each do |property|
   Property.create(name: property)
-end
-
-%w( Літри Грами Кілограми Метри Сантиметри ).each do |unit|
-  Unit.create(name: unit)
 end
 
 %w( MOTUL REPSOL YAMALUBE D.I.D ALPINESTARS DAINESE HIFLO ).each do |brand|

@@ -1,4 +1,5 @@
 class PropertiesController < ApplicationController
+  before_filter :authenticate_user!
   respond_to :html, :json
 
   helper_method :property, :new_property_unit, :new_unit

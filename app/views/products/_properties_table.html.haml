@@ -9,7 +9,6 @@
       %tr
         %td.w150p= pp.property.name
         %td.w150p= pp.unit.name
-        %td= pp.value
         %td= link_to 'remove', product_property_path(pp), method: :delete
     %tr
       %td.w150p= properties_select_tag

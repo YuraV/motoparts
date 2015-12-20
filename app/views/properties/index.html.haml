@@ -1,4 +1,4 @@
 %ul.list-group
   - @properties.each do |property|
     %li.list-group-item
-      = link_to property, property_path(property)
+      = link_to property.name, property_path(property)

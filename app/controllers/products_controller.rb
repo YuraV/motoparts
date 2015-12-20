@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   helper_method :folder, :product, :category, :product_properties
   respond_to :html, :json
-  before_filter :authenticate_user!, except: [:show]
+  before_filter :authenticate_user!, except: [:show, :filter]
   add_breadcrumb "MotoParts", :root_path
 
 

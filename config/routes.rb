@@ -12,6 +12,9 @@ Motoparts::Application.routes.draw do
 
   resources :brands
 
+  resource :shipments, only: :index
+  resource :contacts, only: :index
+
   resources :properties do
     get :units_from_property, on: :member
 

@@ -1,20 +1,25 @@
-- folder.properties.uniq.each do |property|
-  %ul#property.list-group
-    = property.name
-    - property.units.each do |unit|
-      %li.list-group-item
-        = label_tag unit.name
-        = check_box_tag unit.name, unit.id
+.col-md-2
+  #filters
+    - folder.properties.uniq.each do |property|
+      %h4= property.name
+      %ul#property.list-group
+        - property.units.each do |unit|
+          %li.list-group-item.overflow-hidden
+            .form-group
+              = label_tag unit.name, nil, class: 'col-lg-8'
+              .col-lg-4
+                = check_box_tag unit.name, unit.id
+    %h4 Бренд
+    %ul.list-group#brand
+      - folder.brands.uniq.each do |brand|
+        %li.list-group-item.overflow-hidden
+          %span.pull-left
+            = label_tag brand.name
+            = check_box_tag brand.name, brand.id
 
-%ul.list-group#brand
-  Бренди
-  %li.list-group-item
-    - folder.brands.each do |brand|
-      = label_tag brand.name
-      = check_box_tag brand.name, brand.id
-
-%ul.products
-  = render products
+.col-md-10
+  %ul.products
+    = render products
 
 :javascript
   $(function(){

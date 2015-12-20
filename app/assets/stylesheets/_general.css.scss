@@ -7,6 +7,10 @@
 }
 
 body {
+  .overflow-hidden {
+    overflow: hidden;
+  }
+
   .flash-container {
     position: relative;
     width: 100%;
@@ -53,6 +57,12 @@ body {
       text-align: center;
       text-decoration: none;
       vertical-align: top;
+
+      #content-inner {
+        #filters {
+          margin-top: 13px;
+        }
+      }
 
       .property-show-page {
         text-align: left;

@@ -24,6 +24,7 @@ class PropertiesController < ApplicationController
 
   def create
     @property = Property.create(params[:property])
+    respond_with(@property)
   end
 
   def show

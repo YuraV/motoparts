@@ -2,7 +2,7 @@ class Folder < ActiveRecord::Base
   # extend FriendlyId
   attr_accessible :name, :category_id, :published, :picture
 
-  has_many :products
+  has_many :products, dependent: :destroy
   has_many :properties, through: :products
   has_many :product_properties, through: :products
 

@@ -7,8 +7,8 @@ class Category < ActiveRecord::Base
   has_attached_file :picture, :styles => { :medium => "220x160>", :thumb => "100x100>" }, :default_url => "no_image.png"
   validates_attachment :picture, content_type: { content_type: /\Aimage\/.*\Z/ }
 
-  has_many :folders
-  has_many :products, through: :folders
+  has_many :folders, dependent: :destroy
+  has_many :products, through: :folders, dependent: :destroy
 
   self.per_page = 32
 end

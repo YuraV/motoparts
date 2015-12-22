@@ -31,6 +31,12 @@ class PropertiesController < ApplicationController
 
   end
 
+  def destroy
+    @property = property
+    @property.destroy
+    respond_with(@property)
+  end
+
   def units_from_property
     respond_with(property.units)
   end

@@ -1,0 +1,13 @@
+.row.text-align-left
+  .col-md-8
+    %table.table.table-striped
+      %tr
+        %th Brand Name
+        %th Edit
+        %th Destroy
+      %tbody
+        - @brands.each do |brand|
+          %tr
+            %td= link_to brand.name, brand_path(brand)
+            %td= link_to "Edit", edit_brand_path(brand)
+            %td= link_to "Destroy", brand_path(brand), method: :delete

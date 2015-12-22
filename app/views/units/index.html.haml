@@ -1,0 +1,13 @@
+.row.text-align-left
+  .col-md-8
+    %table.table.table-striped
+      %tr
+        %th Brand Name
+        %th Edit
+        %th Destroy
+      %tbody
+        - @units.each do |unit|
+          %tr
+            %td= unit.name
+            %td= link_to "Edit", edit_unit_path(unit)
+            %td= link_to "Destroy", unit_path(unit), method: :delete

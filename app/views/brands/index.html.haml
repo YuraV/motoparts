@@ -8,6 +8,6 @@
       %tbody
         - @brands.each do |brand|
           %tr
-            %td= link_to brand.name, brand_path(brand)
+            %td= brand.name
             %td= link_to "Edit", edit_brand_path(brand)
             %td= link_to "Destroy", brand_path(brand), method: :delete

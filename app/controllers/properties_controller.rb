@@ -14,6 +14,14 @@ class PropertiesController < ApplicationController
     @property = Property.new
   end
 
+  def edit
+    property
+  end
+
+  def update
+    property.update_attributes(params[:property])
+  end
+
   def create
     @property = Property.create(params[:property])
   end

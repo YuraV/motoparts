@@ -1,4 +1,13 @@
-%ul.list-group
-  - @properties.each do |property|
-    %li.list-group-item
-      = link_to property.name, property_path(property)
+.row.text-align-left
+  .col-md-8
+    %table.table.table-striped
+      %tr
+        %th Brand Name
+        %th Edit
+        %th Destroy
+      %tbody
+        - @properties.each do |property|
+          %tr
+            %td= link_to property.name, property_path(property)
+            %td= link_to "Edit", edit_property_path(property)
+            %td= link_to "Destroy", property_path(property), method: :delete

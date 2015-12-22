@@ -3,6 +3,20 @@ class UnitsController < ApplicationController
   helper_method :property
   respond_to :html, :json
 
+  def index
+    @units = Unit.all
+  end
+
+  def edit
+    @unit = Unit.find(params[:id])
+  end
+
+  def update
+    @unit = Unit.find(params[:id])
+    @unit.update_attributes(params[:unit])
+    respond_with(@unit, location: units_path)
+  end
+
   def new
     @unit = Unit.new
   end

@@ -31,8 +31,9 @@ class UnitsController < ApplicationController
   end
 
   def destroy
-    @unit = Unit.find(params[:unit_id])
-    respond_with(@unit, location: property_path(property))
+    @unit = Unit.find(params[:unit_id] || params[:id])
+    @unit.destroy
+    respond_with(@unit, location: units_path)
   end
   private
 

@@ -38,11 +38,7 @@ class ProductsController < ApplicationController
   end
 
   def filter
-    @scope = folder.products
-    @scope = @scope.by_brand(params[:brand]) if params[:brand].present?
-    @scope = @scope.by_property(params[:property]) if params[:property].present?
-
-
+    @scope = FilterProductsService.apply(folder, params)
     respond_with(@scope) do |format|
       format.html { render @scope if request.xhr? }
     end

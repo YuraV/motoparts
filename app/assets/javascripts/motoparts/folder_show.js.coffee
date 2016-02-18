@@ -7,12 +7,22 @@ class MotoParts.FolderShow
     @folder   = @options.folder
     @category = @options.category
 
+    $(document).on "applay:filter", (e) =>
+      params = @populateData()
+      $.get("/categories/#{@category}/folders/#{@folder}/products/filter", params).done (data)=>
+        $(".products").html(data).find("[rel=facebox]").facebox()
 
-    $(document).on "change", ".list-group :checkbox", (e) =>
-      data = { brand: [], property: [] }
-      $(".list-group :checkbox:checked").each (index, checkbox)=>
-        $checkbox = $(checkbox)
-        data[$checkbox.parents("ul").attr("id")].push($checkbox.val())
+    $(document).trigger("applay:filter")
+    $(".list-group :checkbox").on "change", => $(document).trigger("applay:filter")
 
-      $.get("/categories/#{@category}/folders/#{@folder}/products/filter", data).done (data)=>
-        $(".products").html(data)
+  populateData: ->
+    data = { brand: [], property: [], unit_id: [] }
+    $(".list-group :checkbox:checked").each (index, checkbox)=>
+      $checkbox = $(checkbox)
+      $ul = $checkbox.parents("ul")
+      if $ul.data("type") == "property"
+        data.unit_id.push($checkbox.val())
+        data.property.push($ul.data("id"))
+      else
+        data.brand.push($checkbox.val())
+    data

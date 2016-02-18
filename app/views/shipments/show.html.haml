@@ -1,0 +1,6 @@
+#description.description.mercury-region{data: {type: :editable, mercury: :full}}
+  = raw shipment.description
+  - if current_user
+    = link_to t('.edit_description'), "/editor#{shipments_path}",
+                  data: {'save-url' => mercury_update_shipments_path},
+                  class: :mercury_edit_link

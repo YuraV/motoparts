@@ -7,6 +7,9 @@
 }
 
 body {
+  .overflow-show {
+    overflow-y: visible;
+  }
 
 
   .text-align-left {
@@ -65,6 +68,8 @@ body {
       vertical-align: top;
 
       #content-inner {
+        overflow: hidden;
+
         #filters {
           margin-top: 13px;
         }

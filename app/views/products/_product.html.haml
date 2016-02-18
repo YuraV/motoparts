@@ -1,6 +1,15 @@
-%li.li-clickable.product{data: {href: category_folder_product_path(category, folder, product)}}
-  %h3.two-lanes-caption= product.name
-  .product-image
-    = image_tag item_picture(product)
-  %span.price
-    = t('words.price', price: euro_to_uah(product.price))
+- if current_user
+  %li.li-clickable.product{data: {href: category_folder_product_path(category, folder, product)}}
+    %h3.two-lanes-caption= product.name
+    .product-image
+      = image_tag item_picture(product)
+    %span.price
+      = t('words.price', price: euro_to_uah(product.price))
+- else
+  = link_to category_folder_product_path(category, folder, product), rel: :facebox do
+    %li.li-clickable.product{data: {href: category_folder_product_path(category, folder, product)}}
+      %h3.two-lanes-caption= product.name
+      .product-image
+        = image_tag item_picture(product)
+      %span.price
+        = t('words.price', price: euro_to_uah(product.price))

@@ -12,7 +12,6 @@ Motoparts::Application.routes.draw do
 
   resources :brands
 
-  resource :shipments, only: :index
   resource :contacts, only: :index
 
   resources :properties do
@@ -24,6 +23,10 @@ Motoparts::Application.routes.draw do
   resources :property_units
 
   resources :units
+
+  resource :shipments do
+    put :mercury_update
+  end
 
   resources :product_properties
 

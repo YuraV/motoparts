@@ -23,6 +23,7 @@ group :assets do
 end
 
 gem 'puma'
+gem 'acts_as_shopping_cart', :github => 'crowdint/acts_as_shopping_cart', :branch => '0-1-x'
 gem 'google-analytics-rails'
 gem 'jquery-rails'
 gem 'jquery-ui-rails', '~> 4.0.4'

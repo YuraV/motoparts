@@ -2,7 +2,7 @@
   #filters
     - folder.properties.uniq.each do |property|
       %h4= property.name
-      %ul#property.list-group
+      %ul.property.list-group{data: {type: :property, id: property.id}}
         - property.units.each do |unit|
           %li.list-group-item.overflow-hidden
             .form-group
@@ -10,7 +10,7 @@
               .col-lg-4
                 = check_box_tag unit.name, unit.id
     %h4 Бренд
-    %ul.list-group#brand
+    %ul.list-group#brand{data: {type: :brand}}
       - folder.brands.uniq.each do |brand|
         %li.list-group-item.overflow-hidden
           .form-group

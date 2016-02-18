@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/crowdint/acts_as_shopping_cart.git
+  revision: ce656b5f0247836094acb6a857252b2c1507d061
+  branch: 0-1-x
+  specs:
+    acts_as_shopping_cart (0.1.6)
+      activerecord (> 3)
+
+GIT
   remote: git://github.com/tommeier/delayed_paperclip
   revision: c23a537c0c5d7488059b07a036ebfa4f5e52d43e
   branch: fix_312
@@ -277,6 +285,7 @@ PLATFORMS
 
 DEPENDENCIES
   actionpack
+  acts_as_shopping_cart!
   aws-sdk
   better_errors
   binding_of_caller
@@ -322,3 +331,6 @@ DEPENDENCIES
   underscore-rails
   unicorn
   will_paginate-bootstrap
+
+BUNDLED WITH
+   1.11.2

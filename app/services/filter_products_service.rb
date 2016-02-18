@@ -11,12 +11,16 @@ class FilterProductsService
   end
 
   def products
-    @folder.products
+    folder.products
   end
 
   def apply
-    products.by_brand(brand) if brand
-    property_iterator(products) if property
+    return products unless brand || ( property && unit_id )
+    scope = products
+    ids = ProductProperty.select("product_id, count(product_id) as products").where(product_properties: { unit_id: unit_id }).group(:product_id).having("products = ?", property.try(:size)).pluck(:product_id)
+    scope = scope.by_brand(brand) if brand
+    scope = scope.find(ids) if ids.present?
+    scope
   end
 
   def brand
@@ -24,7 +28,11 @@ class FilterProductsService
   end
 
   def property
-    params[:property].presence
+    params[:property].try(:uniq)
+  end
+
+  def unit_id
+    params[:unit_id].try(:uniq)
   end
 
   def property_iterator(scope)
